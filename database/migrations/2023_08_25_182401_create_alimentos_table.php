@@ -16,12 +16,13 @@ class CreateAlimentosTable extends Migration
         Schema::create('alimentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->string('calorias');
+            $table->string('porcao');
             $table->string('carboidratos');
             $table->string('proteinas');
             $table->string('gorduras');
             $table->string('fibras');
             $table->string('sodio');
+            $table->string('calorias');
             $table->string('status');
             $table->timestamps();
         });

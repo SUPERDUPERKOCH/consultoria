@@ -38,44 +38,56 @@
                     </div>  
                     <div class="card-body">
                         <br>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <span>Alimento</span>
-                                <input type="text" class="form-control">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span>Alimento</span>
+                                    <input type="text" class="form-control" id="nome">
 
-                            </div>
-                            <div class="col-md-2">
-                                <span>Porção (Gramas)</span>
-                                <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Porção (Gramas)</span>
+                                    <input type="text" class="form-control" id="porcao">
 
-                            </div>
-                            <div class="col-md-2">
-                                <span>Qntd. de carboidrato</span>
-                                <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Qntd. de carboidrato</span>
+                                    <input type="text" class="form-control" id="carboidratos">
 
-                            </div>
-                            <div class="col-md-2">
-                                <span>Qntd. de proteína</span>
-                                <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Qntd. de proteína</span>
+                                    <input type="text" class="form-control" id="proteinas">
 
-                            </div>
-                            <div class="col-md-2">
-                                <span>Qntd. de gordura</span>
-                                <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Qntd. de gordura</span>
+                                    <input type="text" class="form-control" id="gorduras">
 
-                            </div>
-                            <div class="col-md-12">
-                                <span>Calorias totais</span>
-                                <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Qntd. de fibras</span>
+                                    <input type="text" class="form-control" id="fibras">
 
-                            </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Qntd. de sódio</span>
+                                    <input type="text" class="form-control" id="sodio">
 
-                            <div class="col-md-12 mt-3">
-                                
-                                <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>
+                                </div>
+                                <div class="col-md-12">
+                                    <span>Calorias totais</span>
+                                    <input type="text" class="form-control" id="calorias">
 
-                            </div>
+                                </div>
+
+                                <div class="col-md-12 mt-3">
+
+                                    <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>
+
+                                </div>
                         </div>
+                        </form>
                     </div>
 
                 </div>
