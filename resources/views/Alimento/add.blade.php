@@ -30,80 +30,60 @@
     @include('layouts.NavBar')
 
     <div id="main">
+        <div class="row">
+            <div class="col-md-12">    
+                <div class="card">
+                    <div class="card-header">   
+                        <div class="card-title"><h1>Adicionar Alimento</h1></div>
+                    </div>  
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span>Alimento</span>
+                                <input type="text" class="form-control">
 
-        
+                            </div>
+                            <div class="col-md-2">
+                                <span>Porção (Gramas)</span>
+                                <input type="text" class="form-control">
 
-        <div class="mt-1">
+                            </div>
+                            <div class="col-md-2">
+                                <span>Qntd. de carboidrato</span>
+                                <input type="text" class="form-control">
 
-            <a href="" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
-      
-        </div>  
+                            </div>
+                            <div class="col-md-2">
+                                <span>Qntd. de proteína</span>
+                                <input type="text" class="form-control">
 
-        <div id="search-container" class="col-md-3" style="margin: 10px">
-        
-      
-        
-            <h6>Pesquisar alimento</h6>
-             
-            <form class="input" method="POST">
-            @csrf
-       
+                            </div>
+                            <div class="col-md-2">
+                                <span>Qntd. de gordura</span>
+                                <input type="text" class="form-control">
 
-            <div class="row">
+                            </div>
+                            <div class="col-md-12">
+                                <span>Calorias totais</span>
+                                <input type="text" class="form-control">
 
+                            </div>
 
-                <div class="col-md-8">
-                    <input class = "form-control" type="search" name="search" id="search">
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary">Pesquisar</button>
+                            <div class="col-md-12 mt-3">
+                                
+                                <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-      
         </div>
+        
 
         
-        <div style = "padding: 15px 0;">
-            <table class="table table-bordered" style="border: 3px solid black;">
-                <thead>
-                <tr>
-                
-                    <th style="text-align: center">Nome</th>
-                    <th style="text-align: center">E-mail</th>
-                    <th style="text-align: center">CPF</th>
-                    <th style="text-align: center">Plano</th>
-                    <th style="text-align: center">Ações</th>
-
-                </tr>
-                
-                <tbody>
-                
-                    <div>
-                        @if(count($alimentos) > 0)
-                                  
-                            <tr>
-
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
-                                <td> 
-                                    <div class="row">
-                                        <div class="col-md-2">                        
-                                            <button type="button" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
-                                        </div>
-                                        <div class="col-md-2">                        
-                                            <button type="button" class="btn-delete"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </div> 
-                                </td>
-                            </tr>
-                        @endif     
-                    </div>                                           
-                </tbody>
-            </table>
-               
-        </div>
     </div>
     <script>
 

@@ -23,15 +23,12 @@ class AlimentoController extends BaseController
 
    }
 
-//    public function create() 
-//    { 
-   
-//     $alimentos = Alimento::where('status', 1)->get();
+   public function cadastrar() 
+   { 
 
+    return view('alimento.add');
 
-//     return view('alimento.alimentos', compact('alimentos'));
-
-//    }
+   }
 
 }
 

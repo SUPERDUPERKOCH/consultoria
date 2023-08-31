@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/alimentos', 'AlimentoController@alimentos')->name('alimentos');
+Route::get('/alimentos/add', 'AlimentoController@cadastrar')->name('alimentos.add');
 
 
 

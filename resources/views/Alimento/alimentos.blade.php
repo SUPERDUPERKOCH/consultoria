@@ -35,7 +35,7 @@
 
         <div class="mt-1">
 
-            <a href="" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
+            <a href="{{route('alimentos.add')}}" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
       
         </div>  
 
@@ -68,10 +68,11 @@
                 <thead>
                     <tr>
 
-                        <th style="text-align: center">Nome</th>
-                        <th style="text-align: center">E-mail</th>
-                        <th style="text-align: center">CPF</th>
-                        <th style="text-align: center">Plano</th>
+                        <th style="text-align: center">ID</th>
+                        <th style="text-align: center">Alimento</th>
+                        <th style="text-align: center">Carboidrato</th>
+                        <th style="text-align: center">Proteína</th>
+                        <th style="text-align: center">Gordura</th>
                         <th style="text-align: center">Ações</th>
 
                     </tr>
