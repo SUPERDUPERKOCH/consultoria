@@ -19,9 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/alimentos', 'AlimentoController@alimentos')->name('alimentos');
-Route::get('/alimentos/add', 'AlimentoController@cadastrar')->name('alimentos.add');
-
-
+Route::get('/alimentos/add', 'AlimentoController@add')->name('alimentos.add');
+Route::post('/alimentos/add', 'AlimentoController@create')->name('alimentos.create');
+Route::get('/alimentos/edit/{id}', 'AlimentoController@edit')->name('alimentos.edit');
+Route::put('/alimentos/{id}', 'AlimentoController@update')->name('alimentos.update');
 
 Route::get('/alunos', 'AlunoController@alunos')->name('alunos');
 

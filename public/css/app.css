@@ -91,7 +91,6 @@ body {
 
 
 .btn-edit {
-
     background-color: white;
     border-radius: 10px;
     text-align: center;
@@ -101,9 +100,10 @@ body {
 
 }
 
-.btn-edit:hover {
-    background-color: #2781f7;
-    box-shadow: 5px 5px 7px gray;
+.btn-edit:hover,
+.btn-edit:focus {
+    background-color: #3387f4;
+    color: #fff !important;
 }
 
 .btn-delete {
@@ -117,9 +117,10 @@ body {
 
 }
 
-.btn-delete:hover {
+.btn-delete:hover,
+.btn-delete:focus {
     background-color: red;
-    box-shadow: 5px 5px 7px gray;
+    color: #fff !important;
 }
 
 .btn-add {
@@ -139,6 +140,12 @@ body {
     background-color: #2781f7;
     box-shadow: 5px 5px 7px gray;
 }
+
+.table td {
+    vertical-align: middle !important;
+}
+
+
 
 @media screen and (max-height: 450px) {
     .sidenav {

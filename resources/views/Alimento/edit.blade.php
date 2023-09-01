@@ -34,44 +34,45 @@
             <div class="col-md-12">    
                 <div class="card">
                     <div class="card-header">   
-                        <div class="card-title"><h1>Adicionar Alimento</h1></div>
+                        <div class="card-title"><h1>Editar Alimento</h1></div>
                     </div>  
                     <div class="card-body">
                         <br>
-                        <form action="{{route('alimentos.create')}}" method="POST">
+                        <form action="{{route('alimentos.update', $alimento->id)}}" method="post">
+                            @method('put')
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <span>Alimento</span>
-                                    <input type="text" class="form-control" id="nome" name="nome">
+                                    <input type="text" class="form-control" id="nome" name="nome" value="{{$alimento->nome}}">
                                 </div>
                                 <div class="col-md-6">
                                     <span>Porção (Gramas)</span>
-                                    <input type="text" class="form-control" id="porcao" name="porcao">
+                                    <input type="text" class="form-control" id="porcao" name="porcao" value="{{$alimento->porcao}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Qntd. de carboidrato</span>
-                                    <input type="text" class="form-control" id="carboidratos" name="carboidratos">
+                                    <input type="text" class="form-control" id="carboidratos" name="carboidratos" value="{{$alimento->carboidratos}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Qntd. de proteína</span>
-                                    <input type="text" class="form-control" id="proteinas" name="proteinas">
+                                    <input type="text" class="form-control" id="proteinas" name="proteinas" value="{{$alimento->proteinas}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Qntd. de gordura</span>
-                                    <input type="text" class="form-control" id="gorduras" name="gorduras">
+                                    <input type="text" class="form-control" id="gorduras" name="gorduras" value="{{$alimento->gorduras}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Qntd. de fibras</span>
-                                    <input type="text" class="form-control" id="fibras" name="fibras">
+                                    <input type="text" class="form-control" id="fibras" name="fibras" value="{{$alimento->fibras}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Qntd. de sódio (Mg)</span>
-                                    <input type="text" class="form-control" id="sodio" name="sodio">
+                                    <input type="text" class="form-control" id="sodio" name="sodio" value="{{$alimento->sodio}}">
                                 </div>
                                 <div class="col-md-2">
                                     <span>Calorias totais</span>
-                                    <input type="text" class="form-control" id="calorias" name="calorias">
+                                    <input type="text" class="form-control" id="calorias" name="calorias" value="{{$alimento->calorias}}">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>

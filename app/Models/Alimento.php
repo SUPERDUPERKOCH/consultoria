@@ -11,9 +11,18 @@ class Alimento extends Model
     
     public $timestamps = false;
     protected $table      = 'alimentos';
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        "nome_completo", "status"
+        "id",
+        "nome",
+        "porcao",
+        "carboidratos",
+        "proteinas",
+        "gorduras",
+        "fibras",
+        "sodio",
+        "calorias",
+        "status"
     ];
 }

@@ -45,8 +45,7 @@
         
             <h6>Pesquisar alimento</h6>
              
-            <form class="input" method="POST">
-            @csrf
+            
        
 
             <div class="row">
@@ -80,26 +79,28 @@
                 <tbody>
                 
                     <div>
-                        @if(count($alimentos) > 0)
-                                  
+                        
+                    @foreach($alimentos as $a)    
                             <tr>
-
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
-                                <td style="text-align: center"></td>
+                                
+                                <td style="text-align: center">{{$a->id}}</td>
+                                <td style="text-align: center">{{$a->nome}}</td>
+                                <td style="text-align: center">{{$a->carboidratos}}</td>
+                                <td style="text-align: center">{{$a->proteinas}}</td>
+                                <td style="text-align: center">{{$a->gorduras}}</td>
                                 <td> 
                                     <div class="row">
-                                        <div class="col-md-2">                        
-                                            <button type="button" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
+                                        <div class="col-md-3">                        
+                                            <button data-id="{{ $a->id }}" type="button" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
                                         </div>
-                                        <div class="col-md-2">                        
+                                        <div class="col-md-3">                        
                                             <button type="button" class="btn-delete"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div> 
                                 </td>
+                               
                             </tr>
-                        @endif     
+                    @endforeach
                     </div>                                           
                 </tbody>
             </table>
@@ -107,6 +108,12 @@
         </div>
     </div>
     <script>
+
+        document.querySelector('.btn-edit').addEventListener('click', function() {
+        let id = this.getAttribute('data-id');
+        window.location.href = 'alimentos/edit/' + id;
+        
+    });
 
     </script>
 
