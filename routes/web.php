@@ -25,5 +25,9 @@ Route::get('/alimentos/edit/{id}', 'AlimentoController@edit')->name('alimentos.e
 Route::put('/alimentos/{id}', 'AlimentoController@update')->name('alimentos.update');
 
 Route::get('/alunos', 'AlunoController@alunos')->name('alunos');
+Route::get('/alunos/add', 'AlunoController@add')->name('alunos.add');
+Route::post('/alunos/add', 'AlunoController@create')->name('alunos.create');
+Route::get('/alunos/edit/{id}', 'AlunoController@edit')->name('alunos.edit');
+Route::put('/alunos/{id}', 'AlunoController@update')->name('alunos.update');
 
 Route::get('/treinos', 'TreinoController@treinos')->name('treinos');

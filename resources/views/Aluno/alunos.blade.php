@@ -33,7 +33,7 @@
 
             <div class="mt-1">
 
-                <a href="" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
+                <a href="{{route('alunos.create')}}" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
 
             </div>  
 
@@ -43,8 +43,7 @@
 
                 <h6>Pesquisar alimento</h6>
 
-                <form class="input" method="POST">
-                @csrf
+                
 
 
                 <div class="row">
@@ -67,34 +66,41 @@
                         <tr>
                             <th style="text-align: center">Nome</th>
                             <th style="text-align: center">E-mail</th>
-                            <th style="text-align: center">CPF</th>
-                            <th style="text-align: center">Plano</th>
+                            <th style="text-align: center">Sexo</th>
+                            <th style="text-align: center">Idade</th>
                             <th style="text-align: center">Ações</th>
 
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($alunos as $a)
                         <tr>
-                            <td style="text-align: center"></td>
-                            <td style="text-align: center"></td>
-                            <td style="text-align: center"></td>
-                            <td style="text-align: center"></td>
+                            <td style="text-align: center">{{$a->nome}}</td>
+                            <td style="text-align: center">{{$a->email}}</td>
+                            <td style="text-align: center">{{$a->sexo}}</td>
+                            <td style="text-align: center">{{$a->idade}}</td>
                             <td> 
                                 <div class="row">
                                     <div class="col-md-2">                        
-                                        <button type="button" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
+                                        <button type="button" data-id="{{$a->id}}" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
                                     </div>
                                     <div class="col-md-2">                        
                                         <button type="button" class="btn-delete"><i class="fas fa-trash"></i></button>
                                     </div>
                                     </div> 
                                 </td>
-                        </tr>                                     
+                        </tr>
+                    @endforeach                                         
                     </tbody>
                 </table>  
             </div>
         </div>
         <script>
+
+        $(document).on('click', '.btn-edit', function() {
+            var id = $(this).data('id');
+            location.href = 'alunos/edit/' + id;
+        });
 
         </script>
 

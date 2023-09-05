@@ -30,7 +30,7 @@
     @include('layouts.NavBar')
 
     <div id="main">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-12">    
                 <div class="card">
                     <div class="card-header">   

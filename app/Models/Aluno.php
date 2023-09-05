@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alimento extends Model
+class Aluno extends Model
 {
     use HasFactory;
     
     public $timestamps = true;
-    protected $table      = 'alimentos';
+    protected $table      = 'alunos';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         "id",
         "nome",
-        "porcao",
-        "carboidratos",
-        "proteinas",
-        "gorduras",
-        "fibras",
-        "sodio",
-        "calorias",
+        "email",
+        "sexo",
+        "idade",
+        "altura",
+        "peso",
+        "tmb",
         "status"
     ];
 }

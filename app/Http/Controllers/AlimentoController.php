@@ -46,8 +46,8 @@ class AlimentoController extends BaseController
         'sodio' => $data['sodio'],
         'calorias' => $data['calorias'],
         'status' => 1,
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now()
+       
+        
     ];
 
     Alimento::create($new);
