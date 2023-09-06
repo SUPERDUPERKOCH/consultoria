@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Aluno extends Model
 {
@@ -24,4 +25,15 @@ class Aluno extends Model
         "tmb",
         "status"
     ];
+
+    protected $appends = [
+
+        'updated_at_f'
+
+    ];
+
+
+    public function getUpdatedAtFAttribute(){
+        return Carbon::parse($this->getAttributes()['updated_at'])->format('d/m/Y H:i:s');
+    }
 }

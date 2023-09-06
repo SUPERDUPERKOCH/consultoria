@@ -31,19 +31,12 @@
 
     <div id="main">
 
-        
-
-        <div class="mt-1">
-
-            <a href="{{route('alimentos.add')}}" class="btn btn-primary float-end" style="margin: 10px">Adicionar</a>
-      
-        </div>  
 
         <div id="search-container" class="col-md-3" style="margin: 10px">
         
       
         
-            <h6>Pesquisar alimento</h6>
+            <h6>Pesquisar aluno</h6>
              
             
        
@@ -68,10 +61,8 @@
                     <tr>
 
                         <th style="text-align: center">ID</th>
-                        <th style="text-align: center">Alimento</th>
-                        <th style="text-align: center">Carboidrato</th>
-                        <th style="text-align: center">Proteína</th>
-                        <th style="text-align: center">Gordura</th>
+                        <th style="text-align: center">Nome</th>
+                        <th style="text-align: center">Ultima Atualização</th>
                         <th style="text-align: center">Ações</th>
 
                     </tr>
@@ -80,18 +71,16 @@
                 
                     
                         
-                    @foreach($alimentos as $a)    
+                    @foreach($planejamentos as $p)    
                             <tr>
                                 
-                                <td style="text-align: center">{{$a->id}}</td>
-                                <td style="text-align: center">{{$a->nome}}</td>
-                                <td style="text-align: center">{{$a->carboidratos}}</td>
-                                <td style="text-align: center">{{$a->proteinas}}</td>
-                                <td style="text-align: center">{{$a->gorduras}}</td>
+                                <td style="text-align: center">{{$p->id}}</td>
+                                <td style="text-align: center">{{$p->nome}}</td>
+                                <td style="text-align: center">{{$p->updated_at_f}}</td>
                                 <td> 
                                     <div class="row">
                                         <div class="col-md-2">                        
-                                            <button data-id="{{ $a->id }}" type="button" class="btn-edit"><i class="fas fa-pencil-alt"></i></button>
+                                            <button data-id="{{ $p->id }}" type="button" class="btn-view"><i class="fas fa-eye"></i></button>
                                         </div>
                                         <div class="col-md-2">                        
                                             <button type="button" class="btn-delete"><i class="fas fa-trash"></i></button>
@@ -111,7 +100,7 @@
 
         $(document).on('click', '.btn-edit', function() {
             var id = $(this).data('id');
-            location.href = 'alimentos/edit/' + id;
+            location.href = 'planejamento/view/' + id;
         });
 
     </script>

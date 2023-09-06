@@ -22,6 +22,10 @@
 
             <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
     </head>
     <style>
 
@@ -29,82 +33,54 @@
   </head>
   <body>
 
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn"></a>
+    <nav id="mySidenav" class="sidenav">
       <a href="/"><i class="fas fa-home"></i> Home</a>
-        <div class="dropdown">
-        <a href="javascript:void(0)" onclick="toggleDropdown()" class="dropbtn"><i class="far fa-plus-square"></i> Cadastros <i id="iconeCadastro" class="fas fa-chevron-down"></i></a>
-        <div id="dropdownContent" class="dropdown-content">
-          <a href="{{route('alimentos')}}"><i class="far fa-circle fa-xs"></i> Alimentos</a>
-          <a href="{{route('alunos')}}"><i class="far fa-circle fa-xs"></i> Alunos</a>
-          <a href=" treinos"><i class="far fa-circle fa-xs"></i> Treinos</a>
-        </div>
-    </div>
-    
-    </div>
-  
+        <div class="item">
+         <a class="sub-btn d-flex justify-content-between align-items-center"><span><i class="fas fa-plus"></i> Cadastros</span><i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="{{route('alimentos')}}" class="sub-item">Alimentos</a>
+           <a href="{{route('alunos')}}"class="sub-item">Alunos</a>
+           <a href="" class="sub-item">Treinos</a>
+         </div>
+       </div>
+      <a href="{{route('planejamentos')}}"><i class="fas fa-clipboard"></i> Planejamentos</a>
+    </nav>
     <div id="horizontalBar">
-    <nav class="navbar navbar-dark bg-dark" id="navbar">
+      <nav class="navbar navbar-dark bg-dark" id="navbar">
     
-    <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
+      <a class="navbar-brand ml-1" href="javascript:void(0)" onclick="toggleNav()"><i class="fas fa-bars"></i></a>
+
+      <form class="form-inline my-2 my-lg-0">
+        <span class="mr-3" id="session">Gabriel Koch Vidotto</span>
+        <button id="btnLogout" class="btn btn-outline-danger my-2 my-sm-0" style="margin-right: 4px"type="button">Sair</button>
+      </form>
+      
     </div>
 
   <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  }
+  function toggleNav() {
+    var sidenav = document.getElementById("mySidenav");
+    var main = document.getElementById("main");
+    var horizontalBar = document.getElementById("horizontalBar")
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0px";
-    document.getElementById("main").style.marginLeft= "0px";
-  }
-
-  function toggleDropdown() {
-    var dropdownContent = document.getElementById("dropdownContent");
-    dropdownContent.classList.toggle("show");
-
-  }
-
-  // Fecha o dropdown se o usuário clicar fora dele
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+    if (sidenav.style.width === "250px") {
+        sidenav.style.width = "0px";
+        main.style.marginLeft = "0px";
+        horizontalBar.style.marginLeft = "0px";
+    } else {
+        sidenav.style.width = "250px";
+        main.style.marginLeft = "250px";
+        horizontalBar.style.marginLeft = "250px";
     }
   }
+
+  $(".sub-btn").click(function() {
+      $(this).siblings(".sub-menu").toggle();  
+      $(this).find(".dropdown").toggleClass("rotate"); 
+  }); 
+  
+
+
   </script>
    
   </body>

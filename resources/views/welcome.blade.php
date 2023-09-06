@@ -28,7 +28,7 @@
 </head>
   <body>
     @include('layouts.NavBar')
-    
+    <div id="main"></div>
 
     
 

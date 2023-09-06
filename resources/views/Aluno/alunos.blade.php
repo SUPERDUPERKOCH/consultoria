@@ -107,14 +107,7 @@
         <style>
 
 
-            #main {
-              transition: margin-left .5s;
-              padding: 16px;
-              margin-left: 250px;
-            }
-
-
-
+            
         </style>    
 
     </body>

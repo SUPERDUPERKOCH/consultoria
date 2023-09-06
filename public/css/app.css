@@ -6,109 +6,87 @@ body {
     height: 100%;
     width: 250px;
     position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #212529;
+    z-index: 1001;
+    background: linear-gradient(180deg, #212529 0%, #212529 5%, #313539);
     overflow-x: hidden;
-    transition: 0.3s;
+    transition: width 0.3s;
     padding-top: 60px;
+    white-space: nowrap;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 10px 15px;
     text-decoration: none;
     font-size: 25px;
     color: white;
     display: block;
     transition: 0.3s;
+    transition: padding-left 0.3s;
 }
 
 .sidenav a:hover {
-    margin-left: 3px
+    background: #33363a;
+    padding-left: 25px;
+    color: white;
 }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+.sidenav .item {
+    position: relative;
+    cursor: pointer;
 }
+
+.sidenav .item a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    transition: padding-left 0.3s;
+}
+
+.sidenav .item a:hover {
+    background: #33363a;
+    padding-left: 25px;
+    color: white;
+}
+
+.sidenav .menu .item a .dropdown {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.sidenav .sub-menu {
+    background: transparent;
+    display: none;
+}
+
+.rotate {
+    transform: rotate(90deg);
+    transition: 0.2s ease;
+}
+
 
 #main {
-    transition: margin-left .5s;
+    transition: margin-left 0.3s;
     padding: 16px;
     margin-left: 250px;
 }
 
 #horizontalBar {
-    transition: margin-left .5s;
+    transition: margin-left 0.3s;
     margin-left: 250px;
 }
 
 #navbar {
+    transition: margin-left 0.3s;
     width: 100%;
     /* ocupa toda a largura */
-    height: 70px;
+    height: 60px;
     /* altura fixa */
     overflow: hidden;
-
-}
-
-.dropbtn {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: .3s;
-    border-color: black;
-}
-
-/* Estilos para o container do dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-/* Estilos para o conteúdo do dropdown (escondido por padrão) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #212529 !important;
-    ;
-    min-width: 160px;
-    z-index: 1;
-
-}
-
-.dropdown-content a {
-    color: white;
-    font-size: 18px;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Mudança de cor no hover dos itens do dropdown */
-.dropdown-content a:hover {
-    margin-left: 3px
-}
-
-/* Exibe o conteúdo do dropdown quando ele tem a classe "show" */
-.show {
-    display: block;
-    margin-left: 40px;
-}
-
-/* Horizontal Bar */
-.navbar {
-    width: 100%;
-    height: 50px;
-    background-color: #111;
-    overflow: auto;
 }
 
 .navbar a {
@@ -120,6 +98,22 @@ body {
     font-size: 20px;
 }
 
+#session {
+
+    color: #a8a4a4;
+
+}
+
+
+.dropbtn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: .3s;
+    border-color: black;
+}
 
 
 .btn-edit {
@@ -135,6 +129,22 @@ body {
 .btn-edit:hover,
 .btn-edit:focus {
     background-color: #3387f4;
+    color: #fff !important;
+}
+
+.btn-view {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: green;
+
+}
+
+.btn-view:hover,
+.btn-view:focus {
+    background-color: green;
     color: #fff !important;
 }
 

@@ -31,3 +31,5 @@ Route::get('/alunos/edit/{id}', 'AlunoController@edit')->name('alunos.edit');
 Route::put('/alunos/{id}', 'AlunoController@update')->name('alunos.update');
 
 Route::get('/treinos', 'TreinoController@treinos')->name('treinos');
+
+Route::get('/planejamentos', 'PlanejamentoController@planejamentos')->name('planejamentos');
