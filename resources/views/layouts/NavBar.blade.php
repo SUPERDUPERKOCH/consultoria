@@ -52,7 +52,7 @@
 
       <form class="form-inline my-2 my-lg-0">
         <span class="mr-3" id="session">Gabriel Koch Vidotto</span>
-        <button id="btnLogout" class="btn btn-outline-danger my-2 my-sm-0" style="margin-right: 4px"type="button">Sair</button>
+        <button id="btnLogout" class="btn btn-outline-danger my-2 my-sm-0" style="margin-right: 4px" type="button">Sair</button>
       </form>
       
     </div>

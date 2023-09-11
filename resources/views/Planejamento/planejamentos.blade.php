@@ -98,9 +98,9 @@
     </div>
     <script>
 
-        $(document).on('click', '.btn-edit', function() {
+        $(document).on('click', '.btn-view', function() {
             var id = $(this).data('id');
-            location.href = 'planejamento/view/' + id;
+            location.href = 'planejamentos/planejamento/' + id;
         });
 
     </script>

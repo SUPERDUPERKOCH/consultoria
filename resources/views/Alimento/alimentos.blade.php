@@ -69,10 +69,10 @@
 
                         <th style="text-align: center">ID</th>
                         <th style="text-align: center">Alimento</th>
-                        <th style="text-align: center">Carboidrato</th>
-                        <th style="text-align: center">Proteína</th>
-                        <th style="text-align: center">Gordura</th>
-                        <th style="text-align: center">Ações</th>
+                        <th style="text-align: center; width:100px">Carboidrato</th>
+                        <th style="text-align: center; width:100px">Proteína</th>
+                        <th style="text-align: center; width:100px">Gordura</th>
+                        <th style="text-align: center;">Ações</th>
 
                     </tr>
                 </thead>

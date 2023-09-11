@@ -25,6 +25,16 @@ class PlanejamentoController extends BaseController
 
    }
 
+   public function planejamento($id) 
+   { 
+   
+    $aluno = Aluno::find($id);
+
+
+    return view('planejamento.planejamento', compact('aluno'));
+
+   }
+
 
    
 }

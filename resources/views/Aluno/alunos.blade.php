@@ -65,10 +65,9 @@
                     <thead>
                         <tr>
                             <th style="text-align: center">Nome</th>
-                            <th style="text-align: center">E-mail</th>
-                            <th style="text-align: center">Sexo</th>
-                            <th style="text-align: center">Idade</th>
-                            <th style="text-align: center">Ações</th>
+                            <th style="text-align: center; width:55px">Sexo</th>
+                            <th style="text-align: center; width:55px">Idade</th>
+                            <th style="text-align: center; width: 200px">Ações</th>
 
                         </tr>
                     </thead>
@@ -76,7 +75,6 @@
                     @foreach($alunos as $a)
                         <tr>
                             <td style="text-align: center">{{$a->nome}}</td>
-                            <td style="text-align: center">{{$a->email}}</td>
                             <td style="text-align: center">{{$a->sexo}}</td>
                             <td style="text-align: center">{{$a->idade}}</td>
                             <td> 
