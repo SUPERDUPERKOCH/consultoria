@@ -45,13 +45,13 @@
        </div>
       <a href="{{route('planejamentos')}}"><i class="fas fa-clipboard"></i> Planejamentos</a>
     </nav>
-    <div id="horizontalBar">
+    <div id="horizontalBar" class="horizontalbar">
       <nav class="navbar navbar-dark bg-dark" id="navbar">
     
       <a class="navbar-brand ml-1" href="javascript:void(0)" onclick="toggleNav()"><i class="fas fa-bars"></i></a>
 
       <form class="form-inline my-2 my-lg-0">
-        <span class="mr-3" id="session">Gabriel Koch Vidotto</span>
+        <span id="session">Gabriel Koch Vidotto</span>
         <button id="btnLogout" class="btn btn-outline-danger my-2 my-sm-0" style="margin-right: 4px" type="button">Sair</button>
       </form>
       

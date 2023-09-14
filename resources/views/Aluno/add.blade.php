@@ -77,6 +77,7 @@
                                 <div class="col-md-12 mt-3">
                                     <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>
                                 </div>
+                            </div>    
                         </form>
                     </div>
 

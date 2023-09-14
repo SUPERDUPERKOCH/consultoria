@@ -18,10 +18,12 @@
             <! -- JS -->
             <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-            <!-- Font Awesome -->
-
             <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            
     </head>
 
 
@@ -42,8 +44,8 @@
             </div>
         </div>
         <div class="d-flex justify-content-end mt-2">
-            <button class="btn btn-primary"> Adicionar avaliação</button>
-        </div> 
+            <button class="btn btn-primary" id="botaoAvaliacao" data-id="{{$aluno->id}}">Adicionar avaliação</button>
+        </div>
         <div class="row mt-2">
             <div class="col-md-12 col-xl-6">
                 <div class="card">
@@ -55,15 +57,15 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>10%</strong></span>
+                                    <span><strong>{{ $dobra->body_fat_percentage ? number_format($dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>72.5 kg</strong></span>
+                                    <span><strong>{{ $dobra->massa_magra ? number_format($dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>80.5 kg</strong></span>
+                                    <span><strong>{{$aluno->peso}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>
@@ -73,11 +75,11 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>10%</strong></span>
+                                    <span><strong></strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>72.5 kg</strong></span>
+                                    <span><strong></strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
@@ -107,68 +109,74 @@
                 </div>
             </div>
             <div class="col-md-12 col-xl-6">
-                <div class="card">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                            <h6>Últimas medidas: (dia/mês/ano) </h6>
+                            <h6>Últimas medidas: {{$medida->created_at_f ?? ''}} </h6>
                         </div>
                         <div class="row mb-2">
-                            <ul class="d-flex justify-content-between list-inline w-100">
-                                <li class="px-2 py-1">
-                                Braço Relaxado Direito:
-                                <span><strong>10%</strong></span>
-                                </li>
-                                <li class="px-2 py-1">
-                                    Braço Relaxado Esquerdo:
-                                    <span><strong>72.5</strong></span>
-                                </li>
-                            </ul>
-                            <ul class="d-flex justify-content-between list-inline w-100">
-                                <li class="px-2 py-1">
-                                    Braço Contraído Direito:
-                                    <span><strong>10%</strong></span>
-                                </li>
-                                <li class="px-2 py-1">
-                                    Braço Contraído Esquerdo:
-                                    <span><strong>72.5</strong></span>
-                                </li>
-                            </ul>
-                            <ul class="d-flex justify-content-between list-inline w-100">
-                                <li class="px-2 py-1">
-                                    Coxa Medial Direito
-                                    <span><strong>10%</strong></span>
-                                </li>
-                                <li class="px-2 py-1">
-                                    Coxa Medial Esquerdo:
-                                    <span><strong>72.5</strong></span>
-                                </li>
-                            </ul>
-                            <ul class="d-flex justify-content-between list-inline w-100">
-                                <li class="px-2 py-1">
-                                    Abdômen:
-                                    <span><strong>10%</strong></span>
-                                </li>
-                                <li class="px-2 py-1">
-                                    Cintura:
-                                    <span><strong>72.5</strong></span>
-                                </li>
-                            </ul>
-                            <ul class="d-flex justify-content-between list-inline w-100">
-                                <li class="px-2 py-1">
-                                    Ombro:
-                                    <span><strong>10%</strong></span>
-                                </li>
-                                <li class="px-2 py-1">
-                                    Torax:
-                                    <span><strong>72.5</strong></span>
-                                </li>
-                            </ul>
-                            <ul class="d-flex justify-content-start list-inline w-100">
-                                <li class="px-2 py-1">
-                                    Quadril:
-                                    <span><strong>10%</strong></span>
-                                </li>
-                            </ul>
+                            <div class="col-6">
+                                Braço Esquerdo relaxado:
+                                <span><strong>{{$medida->braco_esquerdo_relaxado ?? ''}} cm</strong></span>
+                            </div>
+
+                            <div class="col-6 mb-2">
+                            Braço Direito relaxado:
+                            <span><strong>{{$medida->braco_direito_relaxado ?? ''}} cm</strong></span>
+                            </div>
+                        
+                            <div class="col-6 mb-2">
+                                Braço Esquerdo contraído:
+                                <span><strong>{{$medida->braco_esquerdo_contraido ?? ''}} cm</strong></span>
+                            </div>
+                            <div class="col-6 mb-2">
+                                Braço Direito contraído:
+                                <span><strong>{{$medida->braco_direito_contraido ?? ''}} cm</strong></span>
+                            </div>
+                        
+                            <div class="col-6 mb-2">
+                                Coxa Medial Esquerda:
+                                <span><strong>{{$medida->coxa_medial_esquerda ?? ''}} cm</strong></span>
+                            </div>
+                            <div class="col-6 mb-2">
+                                Coxa Medial Direita
+                                <span><strong>{{$medida->coxa_medial_direita ?? ''}} cm</strong></span>
+                            </div>
+                           
+                        
+                            <div class="col-6 mb-2">
+                                Panturrilha Esquerda:
+                                <span><strong>{{$medida->panturrilha_esquerda ?? ''}} cm</strong></span>
+                            </div>
+                            <div class="col-6 mb-2">
+                                Panturrilha Direita
+                                <span><strong>{{$medida->panturrilha_direita ?? ''}} cm</strong></span>
+                            </div>                           
+                        
+                            <div class="col-6 mb-2">
+                                Abdômen:
+                                <span><strong>{{$medida->abdomen ?? ''}} cm</strong></span>
+                            </div>
+                            <div class="col-6 mb-2">
+                                Cintura:
+                                <span><strong>{{$medida->cintura ?? ''}} cm</strong></span>
+                            </div>
+                        
+                        
+                            <div class="col-6 mb-2">
+                                Ombro:
+                                <span><strong>{{$medida->ombro ?? ''}} cm</strong></span>
+                            </div>
+                            <div class="col-6 mb-2">
+                                Torax:
+                                <span><strong>{{$medida->torax ?? ''}} cm</strong></span>
+                            </div>
+                        
+                        
+                            <div class="col-6 mb-2">
+                                Quadril:
+                                <span><strong>{{$medida->quadril ?? ''}} cm</strong></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +185,10 @@
     </div>
     <script>
 
-
+        $(document).on('click', '#botaoAvaliacao', function() {
+            var id = $(this).data('id');
+            location.href = '/planejamentos/planejamento/' + id + '/avaliacao';
+        });
 
     </script>
 

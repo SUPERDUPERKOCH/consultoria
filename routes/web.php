@@ -34,3 +34,5 @@ Route::get('/treinos', 'TreinoController@treinos')->name('treinos');
 
 Route::get('/planejamentos', 'PlanejamentoController@planejamentos')->name('planejamentos');
 Route::get('/planejamentos/planejamento/{id}', 'PlanejamentoController@planejamento')->name('planejamentos.planejamento');
+Route::get('/planejamentos/planejamento/{id}/avaliacao', 'PlanejamentoController@add')->name('planejamentos.add');
+Route::post('/planejamentos/planejamento/{id}', 'PlanejamentoController@create')->name('planejamentos.create');
