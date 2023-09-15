@@ -29,6 +29,7 @@ class CreateMedidasTable extends Migration
             $table->string('ombro')->nullable();
             $table->string('torax')->nullable();
             $table->string('quadril')->nullable();
+            $table->string('peso')->nullable();
             $table->timestamps();
         });
     }

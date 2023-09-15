@@ -57,15 +57,15 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>{{ $dobra->body_fat_percentage ? number_format($dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
+                                    <span><strong>{{ ($dobra && $dobra->body_fat_percentage) ? number_format($dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>{{ $dobra->massa_magra ? number_format($dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
+                                    <span><strong>{{ ($dobra && $dobra->massa_magra) ? number_format($dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>{{$aluno->peso}} kg</strong></span>
+                                    <span><strong>{{ $medida->peso ?? ''}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>
@@ -75,33 +75,33 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong></strong></span>
+                                    <span><strong>{{ ($penultima_dobra && $penultima_dobra->body_fat_percentage) ? number_format($penultima_dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong></strong></span>
+                                    <span><strong>{{ ($penultima_dobra && $penultima_dobra->massa_magra) ? number_format($penultima_dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>80.5 kg</strong></span>
+                                    <span><strong>{{ $penultima_medida->peso ?? ''}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>
 
-                        <h6 class="mt-2">Em relação ao inicio do período: (15/08/2022)</h6>
+                        <h6 class="mt-2">Em relação ao inicio do período: {{$primeira_avaliacao->created_at_f ?? ''}}</h6>
                         <div class="row">
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>10%</strong></span>
+                                    <span><strong>{{ ($primeira_avaliacao && $primeira_avaliacao->body_fat_percentage) ? number_format($primeira_avaliacao->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>72.5 kg</strong></span>
+                                    <span><strong>{{  ($primeira_avaliacao && $primeira_avaliacao->massa_magra) ? number_format($primeira_avaliacao->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>80.5 kg</strong></span>
+                                    <span><strong>{{$aluno->peso}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>

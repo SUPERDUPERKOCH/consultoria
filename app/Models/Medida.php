@@ -30,6 +30,7 @@ class Medida extends Model
         'ombro',
         'torax',
         'quadril',
+        'peso'
     ];
 
     protected $appends = [

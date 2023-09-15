@@ -39,7 +39,7 @@
          <a class="sub-btn d-flex justify-content-between align-items-center"><span><i class="fas fa-plus"></i> Cadastros</span><i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
            <a href="{{route('alimentos')}}" class="sub-item">Alimentos</a>
-           <a href="{{route('alunos')}}"class="sub-item">Alunos</a>
+           <a href="{{route('alunos')}}" class="sub-item">Alunos</a>
            <a href="" class="sub-item">Treinos</a>
          </div>
        </div>

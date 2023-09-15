@@ -32,11 +32,24 @@ class PlanejamentoController extends BaseController
    
     $aluno = Aluno::find($id);
 
-    $medida = Medida::where('aluno_id', $aluno->id)->orderBy('id', 'desc')->first();
-    $dobra = Dobra::where('aluno_id', $aluno->id)->orderBy('id', 'desc')->first();
-    $penultima_dobra = Dobra::where('aluno_id', $aluno->id)->orderBy('id', 'desc')->skip(1)->first();
+    $medidasRecentes = Medida::where('aluno_id', $aluno->id)->orderBy('created_at', 'desc')->take(2)->get();
+    $dobrasRecentes = Dobra::where('aluno_id', $aluno->id)->orderBy('created_at', 'desc')->take(2)->get();
+    $primeira_avaliacao = Dobra::where('aluno_id', $aluno->id)->orderby('created_at', 'asc')->first();
 
-    return view('planejamento.planejamento', compact('aluno', 'medida', 'dobra', 'penultima_dobra'));
+    $medida = $medidasRecentes->first();
+    $dobra = $dobrasRecentes->first();
+
+    $penultima_medida = null;
+    $penultima_dobra = null;
+    
+    if ($dobrasRecentes->count() > 1) {
+        $penultima_dobra = $dobrasRecentes->last();
+    }
+    if ($medidasRecentes->count() > 1) {
+        $penultima_medida = $medidasRecentes->last();
+    }
+
+    return view('planejamento.planejamento', compact('aluno', 'medida', 'dobra', 'penultima_dobra', 'primeira_avaliacao', 'penultima_medida'));
 
    }
 
@@ -83,6 +96,7 @@ class PlanejamentoController extends BaseController
         'ombro' => $data['ombro'],
         'torax' => $data['torax'],
         'quadril' => $data['quadril'],
+        'peso' => $data['peso'],
 
     ]);
 

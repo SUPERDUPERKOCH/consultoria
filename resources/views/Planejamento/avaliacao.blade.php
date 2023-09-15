@@ -34,7 +34,7 @@
             <div class="col-md-12">    
                 <div class="card">
                     <div class="card-header">   
-                        <div class="card-title"><h1>Avaliação</h1></div>
+                        <div class="card-title mt-5"><h1>Avaliação</h1></div>
                     </div>  
                     <div class="card-body">
                         <br>
@@ -125,7 +125,10 @@
                                     <span>Quadril</span>
                                     <input type="text" class="form-control" id="quadril" name="quadril">
                                 </div>
-                                
+                                <div class="col-md-3">
+                                    <span>Peso (KG)</span>
+                                    <input type="text" class="form-control" id="peso" name="peso">
+                                </div>
                                 <div class="col-md-12 mt-3">
                                     <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>
                                 </div>

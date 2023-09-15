@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Dobra extends Model
 {
@@ -29,18 +30,29 @@ class Dobra extends Model
 
         'body_density',
         'body_fat_percentage',
-        'massa_magra'
+        'massa_magra',
+        'created_at_f'
         
     ];
+
+    public function getCreatedAtFAttribute(){
+        return Carbon::parse($this->getAttributes()['created_at'])->format('d/m/Y H:i:s');
+    }
 
     public function aluno()
     {
         return $this->belongsTo(Aluno::class, 'aluno_id', 'id');
     }
+
+    public function medida()
+    {
+        return $this->hasOne(Medida::class, 'aluno_id', 'aluno_id');
+    }
+    
     
     public function getBodyDensityAttribute()
     {
-        $gender = $this->aluno->sexo; // Aqui assumo que o campo se chama 'genero'
+        $gender = $this->aluno->sexo; 
 
         if ($gender == 'M') {
             return 1.112 - (0.00043499 * $this->totalSkinfolds()) + (0.00000055 * pow($this->totalSkinfolds(), 2)) - (0.00028826 * $this->aluno->idade);
@@ -51,7 +63,7 @@ class Dobra extends Model
 
     public function getMassaMagraAttribute()
     {
-        $pesoTotal = $this->aluno->peso;
+        $pesoTotal = $this->medida->peso;
         $massaGordura = $pesoTotal * ($this->body_fat_percentage / 100);
         return $pesoTotal - $massaGordura;
     }   
