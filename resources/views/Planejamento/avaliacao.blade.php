@@ -38,7 +38,7 @@
                     </div>  
                     <div class="card-body">
                         <br>
-                        <form action="{{route('planejamentos.create', $aluno->id)}}" method="POST">
+                        <form action="{{route('planejamentos.create_avaliacao', $aluno->id)}}" method="POST">
                             @csrf
                             <div class="row">
 
@@ -70,6 +70,10 @@
                                 <div class="col-md-2">
                                     <span>Supra-ilíaca</span>
                                     <input type="text" class="form-control" id="supra_iliaca" name="supra_iliaca">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>Peso (KG)</span>
+                                    <input type="text" class="form-control" id="peso" name="peso">
                                 </div>
                                 <h4 class="mt-2">Perímetros (em CM)</h4><hr>
 
@@ -124,10 +128,6 @@
                                 <div class="col-md-3">
                                     <span>Quadril</span>
                                     <input type="text" class="form-control" id="quadril" name="quadril">
-                                </div>
-                                <div class="col-md-3">
-                                    <span>Peso (KG)</span>
-                                    <input type="text" class="form-control" id="peso" name="peso">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <button class="btn-add float-end">Salvar <i class="fas fa-save"></i></button>

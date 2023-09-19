@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Aluno;
 use App\Models\Dobra;
 use App\Models\Medida;
+use App\Models\Alimento;
 use App\Models\Planejamento;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -28,32 +29,21 @@ class PlanejamentoController extends BaseController
    }
 
    public function planejamento($id) 
-   { 
-   
+{ 
     $aluno = Aluno::find($id);
 
-    $medidasRecentes = Medida::where('aluno_id', $aluno->id)->orderBy('created_at', 'desc')->take(2)->get();
-    $dobrasRecentes = Dobra::where('aluno_id', $aluno->id)->orderBy('created_at', 'desc')->take(2)->get();
-    $primeira_avaliacao = Dobra::where('aluno_id', $aluno->id)->orderby('created_at', 'asc')->first();
+    $ultimaDobra = Dobra::where('aluno_id', $aluno->id)->latest('created_at')->first();
+    $penultimaDobra = Dobra::where('aluno_id', $aluno->id)->latest('created_at')->skip(1)->first();
 
-    $medida = $medidasRecentes->first();
-    $dobra = $dobrasRecentes->first();
+    $ultimaMedida = Medida::where('aluno_id', $aluno->id)->latest('created_at')->first();
+    $penultimaMedida = Medida::where('aluno_id', $aluno->id)->latest('created_at')->skip(1)->first();
 
-    $penultima_medida = null;
-    $penultima_dobra = null;
-    
-    if ($dobrasRecentes->count() > 1) {
-        $penultima_dobra = $dobrasRecentes->last();
-    }
-    if ($medidasRecentes->count() > 1) {
-        $penultima_medida = $medidasRecentes->last();
-    }
+    $primeira_avaliacao = Dobra::where('aluno_id', $aluno->id)->oldest('created_at')->first();
 
-    return view('planejamento.planejamento', compact('aluno', 'medida', 'dobra', 'penultima_dobra', 'primeira_avaliacao', 'penultima_medida'));
+    return view('planejamento.planejamento', compact('aluno', 'ultimaMedida', 'ultimaDobra', 'penultimaDobra', 'primeira_avaliacao', 'penultimaMedida'));
+}
 
-   }
-
-   public function add($id)
+   public function avaliacao($id)
    { 
     
     $aluno = Aluno::find($id);
@@ -62,7 +52,7 @@ class PlanejamentoController extends BaseController
 
    }
 
-   public function create(Request $request, $id)
+   public function create_avaliacao(Request $request, $id)
    { 
 
     $data = $request->all();
@@ -78,6 +68,7 @@ class PlanejamentoController extends BaseController
         'abdominal' => $data['abdominal'],
         'coxa' => $data['coxa'],
         'supra_iliaca' => $data['supra_iliaca'],
+        'peso' => $data['peso'],
 
     ]);
 
@@ -96,13 +87,34 @@ class PlanejamentoController extends BaseController
         'ombro' => $data['ombro'],
         'torax' => $data['torax'],
         'quadril' => $data['quadril'],
-        'peso' => $data['peso'],
 
     ]);
 
 
     
     return redirect()->route('planejamentos.planejamento', ['id' => $aluno->id]);
+
+   }
+
+   public function dieta($id)
+   { 
+    
+    $aluno = Aluno::find($id);
+
+    $alimento = Alimento::where('status', '1')->get();
+    
+    return view('planejamento.dieta', compact('aluno', 'alimento'));
+
+   }
+   
+   public function getAlimentos(Request $request)
+   { 
+
+    $data = $request->all();
+
+    $alimento = Alimento::where('id', $data['id'])->first();
+    
+    return response()->json(['porcao' => $alimento->porcao ,'calorias' => $alimento->calorias, 'carboidratos' => $alimento->carboidratos, 'proteinas' => $alimento->proteinas, 'gorduras' => $alimento->gorduras]);
 
    }
 

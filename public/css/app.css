@@ -116,12 +116,13 @@ body {
 
 
 .btn-edit {
-    background-color: white;
+    background-color: rgb(254, 254, 254);
     border-radius: 10px;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     border-color: #3387f4;
+    transition: all 0.1s linear;
 
 }
 
@@ -138,7 +139,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     border-color: green;
-
+    transition: all 0.1s linear;
 }
 
 .btn-view:hover,
@@ -155,7 +156,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     border-color: red;
-
+    transition: all 0.1s linear;
 }
 
 .btn-delete:hover,
@@ -174,12 +175,13 @@ body {
     font-size: 16px;
     font-weight: bold;
     border-color: #3387f4;
-
+    transition: all 0.1s linear;
 }
 
 .btn-add:hover {
     background-color: #2781f7;
     box-shadow: 5px 5px 7px gray;
+    color: #fff !important;
 }
 
 .table td {

@@ -57,15 +57,15 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>{{ ($dobra && $dobra->body_fat_percentage) ? number_format($dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
+                                    <span><strong>{{ ($ultimaDobra && $ultimaDobra->body_fat_percentage) ? number_format($ultimaDobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>{{ ($dobra && $dobra->massa_magra) ? number_format($dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
+                                    <span><strong>{{ ($ultimaDobra && $ultimaDobra->massa_magra) ? number_format($ultimaDobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>{{ $medida->peso ?? ''}} kg</strong></span>
+                                    <span><strong>{{ $ultimaDobra->peso ?? ''}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>
@@ -75,15 +75,15 @@
                             <ul class="d-flex justify-content-around list-inline w-100">
                                 <li class="px-2 py-1">
                                     Gordura: <br>
-                                    <span><strong>{{ ($penultima_dobra && $penultima_dobra->body_fat_percentage) ? number_format($penultima_dobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
+                                    <span><strong>{{ ($penultimaDobra && $penultimaDobra->body_fat_percentage) ? number_format($penultimaDobra->body_fat_percentage, 2, ',', '.') : '' }}%</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Massa Magra: <br>
-                                    <span><strong>{{ ($penultima_dobra && $penultima_dobra->massa_magra) ? number_format($penultima_dobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
+                                    <span><strong>{{ ($penultimaDobra && $penultimaDobra->massa_magra) ? number_format($penultimaDobra->massa_magra, 2, ',', '.') : '' }} kg</strong></span>
                                 </li>
                                 <li class="px-2 py-1">
                                     Peso: <br>
-                                    <span><strong>{{ $penultima_medida->peso ?? ''}} kg</strong></span>
+                                    <span><strong>{{ $penultimaDobra->peso ?? ''}} kg</strong></span>
                                 </li>
                             </ul>
                         </div>
@@ -109,79 +109,109 @@
                 </div>
             </div>
             <div class="col-md-12 col-xl-6">
-                <div class="card shadow-sm">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                            <h6>Últimas medidas: {{$medida->created_at_f ?? ''}} </h6>
+                            <h6>Últimas medidas: {{$ultimaMedida->created_at_f ?? ''}} </h6>
                         </div>
                         <div class="row mb-2">
                             <div class="col-6">
                                 Braço Esquerdo relaxado:
-                                <span><strong>{{$medida->braco_esquerdo_relaxado ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->braco_esquerdo_relaxado ?? ''}} cm</strong></span>
                             </div>
 
                             <div class="col-6 mb-2">
                             Braço Direito relaxado:
-                            <span><strong>{{$medida->braco_direito_relaxado ?? ''}} cm</strong></span>
+                            <span><strong>{{$ultimaMedida->braco_direito_relaxado ?? ''}} cm</strong></span>
                             </div>
                         
                             <div class="col-6 mb-2">
                                 Braço Esquerdo contraído:
-                                <span><strong>{{$medida->braco_esquerdo_contraido ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->braco_esquerdo_contraido ?? ''}} cm</strong></span>
                             </div>
                             <div class="col-6 mb-2">
                                 Braço Direito contraído:
-                                <span><strong>{{$medida->braco_direito_contraido ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->braco_direito_contraido ?? ''}} cm</strong></span>
                             </div>
                         
                             <div class="col-6 mb-2">
                                 Coxa Medial Esquerda:
-                                <span><strong>{{$medida->coxa_medial_esquerda ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->coxa_medial_esquerda ?? ''}} cm</strong></span>
                             </div>
                             <div class="col-6 mb-2">
                                 Coxa Medial Direita
-                                <span><strong>{{$medida->coxa_medial_direita ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->coxa_medial_direita ?? ''}} cm</strong></span>
                             </div>
                            
                         
                             <div class="col-6 mb-2">
                                 Panturrilha Esquerda:
-                                <span><strong>{{$medida->panturrilha_esquerda ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->panturrilha_esquerda ?? ''}} cm</strong></span>
                             </div>
                             <div class="col-6 mb-2">
                                 Panturrilha Direita
-                                <span><strong>{{$medida->panturrilha_direita ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->panturrilha_direita ?? ''}} cm</strong></span>
                             </div>                           
                         
                             <div class="col-6 mb-2">
                                 Abdômen:
-                                <span><strong>{{$medida->abdomen ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->abdomen ?? ''}} cm</strong></span>
                             </div>
                             <div class="col-6 mb-2">
                                 Cintura:
-                                <span><strong>{{$medida->cintura ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->cintura ?? ''}} cm</strong></span>
                             </div>
                         
                         
                             <div class="col-6 mb-2">
                                 Ombro:
-                                <span><strong>{{$medida->ombro ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->ombro ?? ''}} cm</strong></span>
                             </div>
                             <div class="col-6 mb-2">
                                 Torax:
-                                <span><strong>{{$medida->torax ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->torax ?? ''}} cm</strong></span>
                             </div>
                         
                         
                             <div class="col-6 mb-2">
                                 Quadril:
-                                <span><strong>{{$medida->quadril ?? ''}} cm</strong></span>
+                                <span><strong>{{$ultimaMedida->quadril ?? ''}} cm</strong></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
+        
+        <div class="row mt-2">
+            <div class="col-md-12 col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Última atualização de dieta: 19/09/2023 </h6>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <button class="btn btn-primary">Visualizar</button>
+                            <button class="btn btn-primary">Gerar PDF</button>            
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xl-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Última atualização de treino: 19/09/2023 </h6>
+                        </div>
+                        
+                        <div class="d-flex justify-content-around">
+                            <button class="btn btn-primary">Visualizar</button>
+                            <button class="btn btn-primary">Gerar PDF</button>            
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>   
     </div>
     <script>
 

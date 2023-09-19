@@ -24,6 +24,7 @@ class Dobra extends Model
         'abdominal',
         'coxa',
         'supra_iliaca',
+        'peso'
     ];
 
     protected $appends=[
@@ -63,7 +64,7 @@ class Dobra extends Model
 
     public function getMassaMagraAttribute()
     {
-        $pesoTotal = $this->medida->peso;
+        $pesoTotal = $this->peso;
         $massaGordura = $pesoTotal * ($this->body_fat_percentage / 100);
         return $pesoTotal - $massaGordura;
     }   

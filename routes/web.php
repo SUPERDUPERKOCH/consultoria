@@ -34,5 +34,8 @@ Route::get('/treinos', 'TreinoController@treinos')->name('treinos');
 
 Route::get('/planejamentos', 'PlanejamentoController@planejamentos')->name('planejamentos');
 Route::get('/planejamentos/planejamento/{id}', 'PlanejamentoController@planejamento')->name('planejamentos.planejamento');
-Route::get('/planejamentos/planejamento/{id}/avaliacao', 'PlanejamentoController@add')->name('planejamentos.add');
-Route::post('/planejamentos/planejamento/{id}', 'PlanejamentoController@create')->name('planejamentos.create');
+Route::get('/planejamentos/planejamento/{id}/avaliacao', 'PlanejamentoController@avaliacao')->name('planejamentos.avaliacao');
+Route::post('/planejamentos/planejamento/{id}', 'PlanejamentoController@create_avaliacao')->name('planejamentos.create_avaliacao');
+Route::get('/planejamentos/planejamento/{id}/dieta', 'PlanejamentoController@dieta')->name('planejamentos.dieta');
+Route::get('/getAlimentos', 'PlanejamentoController@getAlimentos');
+// Route::post('/planejamentos/planejamento/{id}', 'PlanejamentoController@create_dieta')->name('planejamentos.create_dieta');
