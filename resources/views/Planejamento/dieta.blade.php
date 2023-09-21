@@ -56,7 +56,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <span>Adicionar alimento</span>
-                                    <select class="form-control foodSelect">
+                                    <select class="form-control" id="selectAlimento0" onchange="foodSelect(0)">
                                         <option value=""></option>
                                         @foreach($alimento as $a)
                                             <option value="{{$a->id}}">{{$a->nome}}</option>
@@ -66,23 +66,23 @@
                                 </div>
                                 <div class="col-md-1">
                                     <span>Porção</span>
-                                    <input type="text" class="form-control porcaoInput" placeholder="" />
+                                    <input type="text" class="form-control" oninput="calculateCalories(0)" id="porcaoInput0"/>
                                 </div>
                                 <div class="col-md-2">
                                     <span>Calorias</span>
-                                    <input type="text" class="form-control calorieInput" placeholder="" />
+                                    <input type="text" class="form-control" id="calorieInput0"/>
                                 </div>
                                 <div class="col-md-2">
                                     <span>Carboidratos</span>
-                                    <input type="text" class="form-control carboidratoInput" placeholder="" />
+                                    <input type="text" class="form-control" id="carboidratoInput0"/>
                                 </div> 
                                 <div class="col-md-2">
                                     <span>Proteinas</span>
-                                    <input type="text" class="form-control proteinaInput" placeholder="" />
+                                    <input type="text" class="form-control" id="proteinaInput0"/>
                                 </div> 
                                 <div class="col-md-2">
                                     <span>Gorduras</span>
-                                    <input type="text" class="form-control gorduraInput" placeholder="" />
+                                    <input type="text" class="form-control" id="gorduraInput0"/>
                                 </div>      
                             </div>
                         </div>    
@@ -101,7 +101,8 @@
             
     
     <script>
-
+    
+    var contador = 1;
     $(document).ready(function() {
         $('#addCard').click(function() {
         var cardHtml = 
@@ -114,7 +115,7 @@
                     '<div class="row">' + 
                         '<div class="col-md-3">'+
                             '<span>Adicionar alimento</span>' +
-                            '<select class="form-control foodSelect" placeholder="Selecione o alimento">' +
+                            `<select class="form-control" id="selectAlimento${contador}" onchange="foodSelect(${contador})" placeholder="Selecione o alimento">` +
                                 '<option value=""></option>' +
                                 '@foreach($alimento as $a)' + 
                                     '<option value="{{$a->id}}">{{$a->nome}}</option>' +
@@ -124,30 +125,31 @@
                         '</div>' +
                         '<div class="col-md-1">'+
                             '<span>Porção</span>'+
-                            '<input type="text" class="form-control porcaoInput" placeholder="" />'+
+                            `<input type="text" class="form-control" oninput="calculateCalories(${contador})" id="porcaoInput${contador}"/>`+
                         '</div>'+
                         '<div class="col-md-2">' +
                             '<span>Calorias</span>' +
-                            '<input type="text" class="form-control calorieInput" placeholder="" />' +
+                            `<input type="text" class="form-control" id="calorieInput${contador}"/>`+
                         '</div>' +
                         '<div class="col-md-2">' +
                             '<span>Carboidratos</span>'+
-                            '<input type="text" class="form-control carboidratoInput" placeholder="" />'+
+                            `<input type="text" class="form-control" id="carboidratoInput${contador}"/>`+
                         '</div>' +
                         '<div class="col-md-2">' +
                             '<span>Proteinas</span>' +
-                            '<input type="text" class="form-control proteinaInput" placeholder="" />' +
+                            `<input type="text" class="form-control" id="proteinaInput${contador}"/>`+
                         '</div>' +
                         '<div class="col-md-2">' +
                             '<span>Gorduras</span>' +
-                            '<input type="text" class="form-control gorduraInput" placeholder="" />' +
+                            `<input type="text" class="form-control" id="gorduraInput${contador}"/>`+
                         '</div>' +
                     '</div>'+
                 '</div>'+    
             '</div>' +
         '</div>';
-
+        contador ++;
         $('.card').last().after(cardHtml);
+        
         });
   
         $(document).on('click', '.addAlimento-btn', function() {
@@ -157,7 +159,7 @@
             '<div class="row">' + 
                 '<div class="col-md-3">'+
                     '<span>Adicionar alimento</span>'+
-                    '<select class="form-control foodSelect" placeholder="Selecione o alimento">'+
+                    `<select class="form-control" id="selectAlimento${contador}" onchange="foodSelect(${contador})" placeholder="Selecione o alimento">`+
                         '<option value=""></option>' +
                         '@foreach($alimento as $a)'+
                             '<option value="{{$a->id}}">{{$a->nome}}</option>'+
@@ -167,40 +169,44 @@
                 '</div>'+
                 '<div class="col-md-1">'+
                     '<span>Porção</span>'+
-                    '<input type="text" class="form-control porcaoInput" placeholder="" />'+
+                      `<input type="text" class="form-control" oninput="calculateCalories(${contador})" id="porcaoInput${contador}"/>`+
                 '</div>'+
                 '<div class="col-md-2">'+
                     '<span>Calorias</span>'+
-                    '<input type="text" class="form-control calorieInput" placeholder="" />'+
+                    `<input type="text" class="form-control" id="calorieInput${contador}"/>`+
                 '</div>'+
                 '<div class="col-md-2">'+
                     '<span>Carboidratos</span>'+
-                    '<input type="text" class="form-control carboidratoInput" placeholder="" />'+
+                    `<input type="text" class="form-control" id="carboidratoInput${contador}"/>`+
                 '</div>'+
                 '<div class="col-md-2">'+
                     '<span>Proteinas</span>'+
-                    '<input type="text" class="form-control proteinaInput" placeholder="" />' +
+                    `<input type="text" class="form-control" id="proteinaInput${contador}"/>`+
                 '</div>'+
                 '<div class="col-md-2">'+
                     '<span>Gorduras</span>'+
-                    '<input type="text" class="form-control gorduraInput" placeholder="" />' +
+                    `<input type="text" class="form-control" id="gorduraInput${contador}"/>`+
                 '</div>'+
             '</div>'+
         '</div>';
         
 
-        // Adiciona antes do botão
+        contador ++;
         $(this).closest('.card-body').append(newGroup);
         });
     
-        $(document).on('change', '.foodSelect', function() {
-        var foodId = $(this).val();
+
+    });
+
+    function foodSelect(id){
+        console.log(id)    
+        var foodId = $(`#selectAlimento${id}`).val();
         
-        var porcao = $(this).closest('.food-group').find('.porcaoInput');
-        var calorias = $(this).closest('.food-group').find('.calorieInput');
-        var carboidratos = $(this).closest('.food-group').find('.carboidratoInput');
-        var proteinas = $(this).closest('.food-group').find('.proteinaInput');
-        var gorduras = $(this).closest('.food-group').find('.gorduraInput');
+        var porcao = $(this).closest('.food-group').find(`#porcaoInput${id}`);
+        var calorias = $(this).closest('.food-group').find(`#calorieInput${id}`);
+        var carboidratos = $(this).closest('.food-group').find(`#carboidratoInput${id}`);
+        var proteinas = $(this).closest('.food-group').find(`#proteinaInput${id}`);
+        var gorduras = $(this).closest('.food-group').find(`#gorduraInput${id}`);
         
         if (foodId) {
             $.ajax({
@@ -213,12 +219,14 @@
                     defaultProteinas = data.proteinas;
                     defaultCarboidratos = data.carboidratos;
                     defaultGorduras = data.gorduras;
-
-                document.querySelector('.porcaoInput').value = defaultPorcao;   
-                document.querySelector('.calorieInput').value = defaultCalorias;
-                document.querySelector('.proteinaInput').value = defaultProteinas;
-                document.querySelector('.carboidratoInput').value = defaultCarboidratos;
-                document.querySelector('.gorduraInput').value = defaultGorduras;
+                   
+                    $(`#porcaoInput${id}`).val(defaultPorcao);
+                    $(`#calorieInput${id}`).val(defaultCalorias);     
+                    $(`#carboidratoInput${id}`).val(defaultCarboidratos);   
+                    $(`#proteinaInput${id}`).val(defaultProteinas);   
+                    $(`#gorduraInput${id}`).val(defaultGorduras);
+                    
+    
                 },
                 error: function(error) {
                     console.error("Erro ao buscar as calorias:", error);
@@ -232,23 +240,21 @@
             gorduras.val('');
 
         }
-        });
-
-    function calculateCaloriesBasedOnPortion() {
-    let novaPorcao = parseFloat(document.querySelector('.porcaoInput').value);
-    let porcao = novaPorcao / defaultPorcao; 
-
-    document.querySelector('.calorieInput').value = (defaultCalorias * porcao).toFixed(2);
-    document.querySelector('.proteinaInput').value = (defaultProteinas * porcao).toFixed(2);
-    document.querySelector('.carboidratoInput').value = (defaultCarboidratos * porcao).toFixed(2);
-    document.querySelector('.gorduraInput').value = (defaultGorduras * porcao).toFixed(2);
+    }
 
     
-}
-  
-    document.querySelector('.porcaoInput').addEventListener('input', calculateCaloriesBasedOnPortion);
 
-    });
+    function calculateCalories(id){
+
+        let novaPorcao = $(`#porcaoInput${id}`).val();
+        let porcao = novaPorcao / defaultPorcao; 
+                            
+        $(`#calorieInput${id}`).val(parseFloat(defaultCalorias * porcao).toFixed(2));
+        $(`#carboidratoInput${id}`).val(parseFloat(defaultCarboidratos * porcao).toFixed(2));
+        $(`#proteinaInput${id}`).val(parseFloat(defaultProteinas * porcao).toFixed(2));
+        $(`#gorduraInput${id}`).val(parseFloat(defaultGorduras * porcao).toFixed(2));
+        
+    }
 
     </script>
 
